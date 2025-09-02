@@ -24,11 +24,11 @@ This project demonstrates a simple setup with GitHub Actions for automated deplo
 
 3. Install dependencies:
    ```bash
-  npm install
+   npm install
 
 4. Start development server:
    ```bash
-  npm start
+   npm start
 
 ### 5. Deployment (with GitHub Actions)  
 ```markdown
