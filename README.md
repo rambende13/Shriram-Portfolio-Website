@@ -16,7 +16,7 @@ This project demonstrates a simple setup with GitHub Actions for automated deplo
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/username/repo-name.git
+   https://github.com/rambende13/Shriram-Portfolio-Website.git
 
 2. Navigate into project:
    ```bash
