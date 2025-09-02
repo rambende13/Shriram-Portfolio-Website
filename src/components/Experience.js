@@ -1,9 +1,9 @@
 export default function Experience() {
   const experiences = [
     {
-      title: "DevOps Engineer",
+      title: "Associate Software Engineer",
       company: "Proeffective IT Service Cloud Enabled",
-      duration: "Jun 2025 – Present",
+      duration: "Feb 2025 – Present",
       description: [
         "Built and maintained CI/CD pipelines for multiple environments.",
         "Automated AWS infrastructure provisioning, reducing deployment time by 50%.",

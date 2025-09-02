@@ -4,7 +4,7 @@ export default function About() {
       <h2 className="text-4xl font-semibold mb-6">About Me</h2>
       <p className="text-lg text-gray-700">
         7 months of hands-on experience in DevOps, focusing on CI/CD, Automation, and Monitoring. 
-        Skilled in Kubernetes, Docker, Terraform, AWS, and cloud-native deployments.
+        Skilled in Kubernetes, Docker, Terraform, AWS, GCP and cloud-native deployments.
         Passionate about automation and building reliable systems.
       </p>
     </section>

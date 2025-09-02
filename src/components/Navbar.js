@@ -14,7 +14,7 @@ export default function Navbar() {
           className="text-2xl font-bold text-indigo-600 cursor-pointer"
           whileHover={{ scale: 1.1 }}
         >
-          Shriram.dev 🚀
+          Codefolio.dev 🚀
         </motion.div>
 
         {/* Desktop Menu */}
