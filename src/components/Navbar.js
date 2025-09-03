@@ -37,7 +37,7 @@ export default function Navbar() {
         </button>
 
         {/* Website Name */}
-        <h1 className="text-2xl font-bold tracking-wide">codefolio.dev</h1>
+        <h1 className="text-2xl font-bold tracking-wide">codefolio.dev.🚀</h1>
       </header>
 
       {/* Blur Overlay */}
