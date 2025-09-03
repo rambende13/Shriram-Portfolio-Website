@@ -1,64 +1,82 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const links = ["Home", "About", "Skills", "Experience", "Projects", "Education", "Contact"];
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    "Home",
+    "About",
+    "Skills",
+    "Experience",
+    "Projects",
+    "Education",
+    "Contact",
+  ];
+
+  const handleMenuClick = (id) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      const section = document.getElementById(id.toLowerCase());
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/40 backdrop-blur-lg shadow-sm">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* Logo */}
-        <motion.div
-          className="text-2xl font-bold text-indigo-600 cursor-pointer"
-          whileHover={{ scale: 1.1 }}
+    <div>
+      {/* Website Header with Gradient */}
+      <header className="fixed top-0 left-0 w-full flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md z-50">
+        {/* Hamburger Icon */}
+        <button
+          className="p-2 mr-4 bg-white/20 rounded-lg hover:bg-white/30"
+          onClick={() => setIsOpen(true)}
         >
-          Codefolio.dev 🚀
-        </motion.div>
+          ☰
+        </button>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-semibold text-gray-700">
-          {links.map((link, i) => (
-            <motion.li
-              key={i}
-              whileHover={{ scale: 1.1, color: "#6366f1" }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <a
-                href={`#${link.toLowerCase()}`}
-                className="hover:text-indigo-500 transition"
-              >
-                {link}
-              </a>
-            </motion.li>
-          ))}
-        </ul>
+        {/* Website Name */}
+        <h1 className="text-2xl font-bold tracking-wide">codefolio.dev</h1>
+      </header>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden text-2xl cursor-pointer" onClick={() => setOpen(!open)}>
-          {open ? <FaTimes /> : <FaBars />}
-        </div>
-      </div>
+      {/* Blur Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-      {/* Mobile Slide Menu */}
+      {/* Sidebar From Left */}
       <motion.div
-        initial={{ x: "100%" }}
-        animate={{ x: open ? "0%" : "100%" }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="fixed top-0 right-0 w-3/4 h-full bg-white shadow-lg md:hidden flex flex-col items-center pt-20 space-y-8 text-lg font-semibold"
+        initial={{ x: "-100%" }}
+        animate={{ x: isOpen ? 0 : "-100%" }}
+        transition={{ type: "spring", stiffness: 80 }}
+        className="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl z-50 p-6 flex flex-col space-y-6"
       >
-        {links.map((link, i) => (
-          <a
-            key={i}
-            href={`#${link.toLowerCase()}`}
-            onClick={() => setOpen(false)}
-            className="hover:text-indigo-600 transition"
+        {/* Sidebar Header */}
+        <div className="flex justify-between items-center mb-4 border-b pb-2">
+          <h2 className="text-xl font-bold text-gray-800">Menu</h2>
+          <button
+            className="text-2xl text-gray-600 hover:text-red-500"
+            onClick={() => setIsOpen(false)}
           >
-            {link}
-          </a>
+            ✕
+          </button>
+        </div>
+
+        {/* Sidebar Links */}
+        {menuItems.map((item) => (
+          <button
+            key={item}
+            className="text-lg text-gray-800 hover:text-purple-600 text-left"
+            onClick={() => handleMenuClick(item)}
+          >
+            {item}
+          </button>
         ))}
       </motion.div>
-    </nav>
+    </div>
   );
 }
