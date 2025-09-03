@@ -1,15 +1,12 @@
 name: Deploy React App to GitHub Pages
 
 on:
-  workflow_dispatch:   # Manual trigger so you can select branch
-    inputs:
-      branch:
-        description: "Select the branch to deploy"
-        required: true
-        default: "main"   
+  push:
+    branches:
+      - main  # Deploy on every push to main
 
 permissions:
-  contents: write   # Needed for deployment
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -18,13 +15,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'   
+          node-version: '22'
+
       - name: Install dependencies
         run: npm install
 
@@ -34,5 +30,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages   # Deployment branch
-          folder: build      # React build output
+          branch: gh-pages
+          folder: build
