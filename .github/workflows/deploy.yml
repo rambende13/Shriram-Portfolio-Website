@@ -3,7 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main   # whenever you push to main
+      - main
+
+permissions:
+  contents: write   # ✅ allow pushing to gh-pages branch
 
 jobs:
   build-and-deploy:
@@ -16,17 +19,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # or your version
+          node-version: 18
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build Project
-        run: npm run build   # creates ./build or ./dist
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build   # or ./dist
+          publish_dir: ./build
           publish_branch: gh-pages
