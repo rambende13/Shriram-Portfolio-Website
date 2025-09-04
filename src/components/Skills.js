@@ -23,7 +23,7 @@ import {
 export default function Skills() {
   const categories = [
     {
-      title: "🌩️ DevOps & Cloud",
+      title: "DevOps & Cloud",
       items: [
         { name: "AWS", icon: FaAws, color: "#FF9900" },
         { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
@@ -40,7 +40,7 @@ export default function Skills() {
       ],
     },
     {
-      title: "⚛️ Frontend & Development",
+      title: "Frontend & Development",
       items: [
         { name: "React", icon: FaReact, color: "#61DAFB" },
         { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
@@ -52,13 +52,13 @@ export default function Skills() {
       ],
     },
     {
-      title: "🤖 AI & Automation",
+      title: "AI & Automation",
       items: [
         { name: "Prompt Engineering", icon: SiAnsible, color: "#EE0000" },
       ],
     },
     {
-      title: "📊 Productivity",
+      title: "Productivity",
       items: [
         { name: "Word", icon: FaFileWord, color: "#2B579A" },
         { name: "Excel", icon: FaFileExcel, color: "#217346" },
@@ -70,7 +70,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
-      <h2 className="text-4xl font-bold text-center mb-12">⚡ Skills</h2>
+      <h2 className="text-4xl font-bold text-center mb-12">Skills</h2>
 
       {/* Categories in one grid (no need to scroll much) */}
       <div className="max-w-7xl mx-auto grid gap-8 lg:grid-cols-4 md:grid-cols-2 px-6">

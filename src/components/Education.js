@@ -23,7 +23,7 @@ export default function Education() {
       className="py-20 bg-gradient-to-b from-gray-50 to-gray-100"
     >
       {/* Section Title */}
-      <h2 className="text-4xl font-bold text-center mb-16">🎓 Education</h2>
+      <h2 className="text-4xl font-bold text-center mb-16">Education</h2>
 
       <div className="max-w-4xl mx-auto relative">
         {/* Vertical timeline line */}
