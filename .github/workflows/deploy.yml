@@ -1,41 +1,32 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
+      - main   # whenever you push to main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: 18   # or your version
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build React App
-        run: npm run build
-
-      - name: Clear old gh-pages branch
-        run: |
-          git fetch origin gh-pages || echo "No gh-pages branch yet"
-          git branch -D gh-pages || echo "No existing branch"
-          git push origin --delete gh-pages || echo "No existing remote branch"
+      - name: Build Project
+        run: npm run build   # creates ./build or ./dist
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build   # or ./dist
+          publish_branch: gh-pages
